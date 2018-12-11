@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            footer {
+                bottom: 0;
+                float: bottom;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: #f0f0f0;
+            }
+            button {
+                color: #6666ff;
+                border-radius: 3px;
+                padding: 7px;
+            }
+            header {
+                border: solid 1px #f0f0f0;
+                border-bottom-color: #ccc;
+            }
+            .conteudo {
+                display: flex;
+                justify-content: center;
+            }
+            #page {
+                height: 100%;
+            }
+            .rodape {
+                bottom: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="page">   
+            <div>
+                <header>
+                    <img src="IMG/image-udesc.png" height="70" alt="Logo Udesc">
+                </header>
+            </div>
+            <div class="conteudo">
+                <form></form>
+                <table>
+                    <tr>
+                        <td>Matricula </td>
+                        <td><input type="number" id="matricula" onkeyup="my_func(this)"/>
+                            <span style="color: #ccc"> Ex. 123456789</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Nome </td>
+                        <td><span id="nome"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Palestras </td>
+                        <td>
+                            <span>Palestra 1</span>
+                            <input type="checkbox" name="palestra1" id="palestra1"> <br>
+                            <span>Palestra 2</span>
+                            <input type="checkbox" name="palestra2" id="palestra2"> <br>                                                        
+                            <span>Palestra 3</span>
+                            <input type="checkbox" name="palestra3" id="palestra3"> <br>
+                            <span>Palestra 4</span>
+                            <input type="checkbox" name="palestra4" id="palestra4"> <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Tipo </td>
+                        <td>
+                            <select id="tipo">
+                                <option value="1">Certificado</option>
+                                <option value="2">Atividade complementar</option>
+                            </select>
+                        </td>
+                    </tr>    
+                    <tr>
+                        <td colspan="2"><button>Enviar</button></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="rodape">
+                <footer>
+                    <span>Erick Jordy fernandes de souza</span>
+                </footer>
+            </div>    
+            <script>
+                var arr_nomes = {
+                    "123456789":'erick',
+                    "123456788":'erick2',
+                    "123456777":'erick3',
+                    "123456666":'erick4',
+                    "123455555":'erick5'
+                }
+                function my_func(btn) {
+                    if (btn.value.length > 9) {
+                        var nv = "";
+                        for(var i = 0; i < 9; i++) {
+                            nv += btn.value[i];
+                        }
+                        btn.value = nv;
+                        alert("só é permitido 9 digitos.");
+                    }
+                    if(arr_nomes[btn.value] != undefined) {
+                        document.getElementById('nome').innerHTML = arr_nomes[btn.value];
+                    }
+                    else {
+                        document.getElementById('nome').innerHTML = "";
+                    }
+                }
+            </script>
+        </div>  
+    </body>
+</html>
